@@ -6,7 +6,7 @@
     </div>
     <div class="container">
       <div class="text">
-        <p>AQUILA AVEION</p>
+        <p>{{ name }}</p>
       </div>
       <div class="shadow-container">
         <div class="shadow">
@@ -15,34 +15,42 @@
       </div>
       <div class="logo">
         <div>
-          <img class="social" src="./assets/svg/instagram.svg" alt="/" />
+          <a :href="`https://instagram.com/${instagram}`">
+            <img class="social" src="./assets/svg/instagram.svg" alt="/" />
+          </a>
         </div>
         <div>
-          <img class="social" src="./assets/svg/twitter.svg" alt="/" />
+          <a :href="`https://twitter.com/${twitter}`"
+            ><img class="social" src="./assets/svg/twitter.svg" alt="/" />
+          </a>
         </div>
         <div>
-          <img class="social" src="./assets/svg/snapchat.svg" alt="/" />
+          <a :href="`https://snapchat.com/${snapchat}`"
+            ><img class="social" src="./assets/svg/snapchat.svg" alt="/" />
+          </a>
         </div>
         <div>
-          <img class="social" src="./assets/svg/email.svg" alt="/" />
+          <a :href="`mailto:${email}`">
+            <img class="social" src="./assets/svg/email.svg" alt="/" />
+          </a>
         </div>
       </div>
 
       <div class="routes">
         <div>
-          <p>HOME</p>
+          <a href="/home"> <p>HOME</p> </a>
         </div>
         <div>
-          <p>ABOUT</p>
+         <a href="/about"> <p>ABOUT</p> </a>
         </div>
         <div>
           <img class="image" src="./assets/images/profile.jpg" alt="/" />
         </div>
         <div>
-          <p>GALLERY</p>
+         <a href="/gallery"> <p>GALLERY</p>  </a>
         </div>
         <div>
-          <p>CONTACT</p>
+          <a href="/contact"> <p>CONTACT</p>  </a>
         </div>
       </div>
     </div>
@@ -99,10 +107,14 @@
   align-items: center;
   text-align: center;
   font-size: 20px;
-  color: white;
+
   width: 50%;
   margin: auto;
   margin-top: 15px;
+}
+.routes a {
+  text-decoration: none;
+  color: white;
 }
 .image {
   width: 100px;
@@ -150,3 +162,29 @@
   }
 }
 </style>
+
+<script>
+export default {
+  data() {
+    return {
+      name: "",
+      instagram: "",
+      twitter: "",
+      snapchat: "",
+    };
+  },
+
+  mounted() {
+    fetch("https://hirng-x2021.glitch.me/api")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        this.name = data.name;
+        this.instagram = data.social_media.instagram;
+        this.twitter = data.social_media.twitter;
+        this.snapchat = data.social_media.snapchat;
+        this.email = data.social_media.email;
+      });
+  },
+};
+</script>
