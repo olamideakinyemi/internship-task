@@ -11,6 +11,15 @@
       <div class="shadow">
         <img src="./assets/images/model.png" alt="/" />
       </div>
+      <div class="routes">
+        <p>HOME</p>
+        <p>ABOUT</p>
+        <div>
+          <img class="image" src="./assets/images/profile.jpg" alt="/" />
+        </div>
+        <p>GALLERY</p>
+        <p>CONTACT</p>
+      </div>
     </div>
   </div>
 </template>
@@ -42,21 +51,32 @@
   word-spacing: 25px;
 }
 img {
- width: 350px;
+  width: 350px;
 }
 .shadow {
-   display: flex;
-   justify-content: center;
-   width: 500px;
-   box-shadow: -7px 0 5px 5px #940C3C;
-   background: #AE1A4E;
-   margin-left: 400px;
-   padding-top: 60px;
-   padding-left: 50px;
- padding-right: 50px;
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  box-shadow: -7px 0 5px 5px #940c3c;
+  background: #ae1a4e;
+  margin-left: 400px;
+  padding-top: 60px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+.routes {
+  display: flex;
+  justify-content: between;
+  align-items: center;
+    text-align: center;
+  font-size: 20px;
+  color: white;
+  margin-left: 510px;
+  margin-top: 30px;
+}
+.image {
+width: 130px;
+height: 120px;
+border-radius: 50%;
 }
 </style>
-box-shadow: 10px 10px 5px #940C3C;
- padding-top: 60px;
- padding-left: 100px;
- padding-right: 100px;
